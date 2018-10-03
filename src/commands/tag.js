@@ -12,7 +12,7 @@ module.exports = class extends Command {
 		});
 		this.createCustomResolver('string', (arg, possible, message, [action]) => {
 			if (action === 'list') return arg;
-			return this.client.arguments.get('string').run(arg, possible, message)
+			return this.client.arguments.get('string').run(arg, possible, message);
 		});
 	}
 
@@ -24,7 +24,7 @@ module.exports = class extends Command {
 	async remove(message, [tag]) {
 		const filtered = message.guild.settings.tags.filter(([name]) => name !== tag);
 		await message.guild.settings.update('tags', filtered, { action: 'overwrite' });
-		return message.send(`Removed \`${name}\` tag`);
+		return message.send(`Removed \`${tag}\` tag`);
 	}
 
 	list(message) {
