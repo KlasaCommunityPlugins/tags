@@ -17,7 +17,7 @@ module.exports = class extends Event {
 				const commandRun = tagCommand.show(message, [command]);
 				timer.stop();
 				const response = await commandRun;
-				this.client.finalizers.run(message, response, timer);
+				this.client.finalizers.run(message, tagCommand, response, timer);
 				this.client.emit('commandSuccess', message, message.command, message.params, response);
 			} catch (error) {
 				this.client.emit('commandError', message, message.command, message.params, error);
