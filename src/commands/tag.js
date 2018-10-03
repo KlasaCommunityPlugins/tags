@@ -28,7 +28,7 @@ module.exports = class extends Command {
 	}
 
 	list(message) {
-		return message.send(message.guild.settings.tags.map(v => v[0]).join(', '));
+		return message.send(`Tags for this guild are: ${message.guild.settings.tags.map(v => v[0])}`);
 	}
 
 	show(message, [tag]) {
