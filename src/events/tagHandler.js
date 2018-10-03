@@ -3,7 +3,7 @@ const { Event } = require('klasa');
 module.exports = class extends Event {
 
 	constructor(...args) {
-		super(...args, { event: 'unknownCommand' });
+		super(...args, { event: 'commandUnknown' });
 	}
 
 	async run(message, command) {
