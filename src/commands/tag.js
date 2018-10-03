@@ -5,10 +5,14 @@ module.exports = class extends Command {
 
 	constructor(...args) {
 		super(...args, {
-			usage: '<add|remove|source|show:default> <tag:str> [content:...str]',
+			usage: '<add|remove|source|list|show:default> (tag:string) [content:...string]',
 			usageDelim: ' ',
 			subcommands: true,
 			description: 'Shows tags.'
+		});
+		this.createCustomResolver('string', (arg, possible, message, [action]) => {
+			if (action === 'list') return arg;
+			return this.client.arguments.get('string').run(arg, possible, message)
 		});
 	}
 
@@ -21,6 +25,10 @@ module.exports = class extends Command {
 		const filtered = message.guild.settings.tags.filter(([name]) => name !== tag);
 		await message.guild.settings.update('tags', filtered, { action: 'overwrite' });
 		return message.send(`Removed \`${name}\` tag`);
+	}
+
+	list(message) {
+		return message.send(message.guild.settings.tags.map(v => v[0]).join(', '));
 	}
 
 	show(message, [tag]) {

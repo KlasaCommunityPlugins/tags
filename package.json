@@ -11,7 +11,8 @@
   "author": "bdistin",
   "license": "MIT",
   "peerDependencies": {
-    "klasa": "github:dirigeants/klasa#master"
+    "klasa": "github:dirigeants/klasa#master",
+    "discord.js": "github:discordjs/discord.js#master"
   },
   "devDependencies": {
     "@types/node": "^10.3.2",
