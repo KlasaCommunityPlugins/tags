@@ -18,12 +18,12 @@ module.exports = class extends Event {
 				timer.stop();
 				const response = await commandRun;
 				this.client.finalizers.run(message, tagCommand, response, timer);
-				this.client.emit('commandSuccess', message, message.command, message.params, response);
+				this.client.emit('commandSuccess', message, tagCommand, ['show', command], response);
 			} catch (error) {
-				this.client.emit('commandError', message, message.command, message.params, error);
+				this.client.emit('commandError', message, tagCommand, ['show', command], error);
 			}
 		} catch (response) {
-			this.client.emit('commandInhibited', message, message.command, response);
+			this.client.emit('commandInhibited', message, tagCommand, response);
 		}
 		if (this.client.options.typing) message.channel.stopTyping();
 	}
