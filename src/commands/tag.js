@@ -28,18 +28,18 @@ module.exports = class extends Command {
 	}
 
 	list(message) {
-		return message.send(`Tags for this guild are: ${message.guild.settings.tags.map(v => v[0])}`);
+		return message.send(`Tags for this guild are: ${message.guild.settings.tags.map(key => key[0])}`);
 	}
 
 	show(message, [tag]) {
 		const emote = message.guild.settings.tags.find(([name]) => name === tag);
-		if (!emote) return;
+		if (!emote) return undefined;
 		return message.send(emote[1]);
 	}
 
 	source(message, [tag]) {
 		const emote = message.guild.settings.tags.find(([name]) => name === tag);
-		if (!emote) return;
+		if (!emote) return undefined;
 		return message.send(`\`\`\`${Util.escapeMarkdown(emote[1])}\`\`\``);
 	}
 
