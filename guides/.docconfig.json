@@ -1,7 +1,11 @@
-[{
-    "name": "Getting Started",
-    "files": [{
+[
+    {
         "name": "Getting Started",
-        "path": "GettingStarted.md"
-    }]
-}]
+        "files": [
+            {
+                "name": "Getting Started",
+                "path": "GettingStarted.md"
+            }
+        ]
+    }
+]
