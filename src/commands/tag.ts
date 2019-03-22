@@ -1,10 +1,10 @@
-const { Command } = require('klasa');
-const { Util } = require('discord.js');
+import { Command } from 'klasa';
+import { Util }  from 'discord.js';
 
-module.exports = class extends Command {
+export default class TagCommand extends Command {
 
-	constructor(...args) {
-		super(...args, {
+	constructor(client, store, file, directory) {
+		super(client, store, file, directory, {
 			usage: '<add|remove|source|list|show:default> (tag:string) [content:...string]',
 			usageDelim: ' ',
 			subcommands: true,
@@ -43,4 +43,4 @@ module.exports = class extends Command {
 		return message.send(`\`\`\`${Util.escapeMarkdown(emote[1])}\`\`\``);
 	}
 
-};
+}

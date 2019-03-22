@@ -1,13 +1,12 @@
-const { Event, Stopwatch } = require('klasa');
+import { Event, Stopwatch, KlasaMessage } from 'klasa';
+import TagCommand from '../commands/tag';
 
-module.exports = class extends Event {
+export default class TagHandler extends Event {
 
-	constructor(...args) {
-		super(...args, { event: 'commandUnknown' });
-	}
+	event = 'commandUnknown';
 
-	async run(message, command) {
-		const tagCommand = this.client.commands.get('tag');
+	async run(message: KlasaMessage, command: string) {
+		const tagCommand = this.client.commands.get('tag') as TagCommand;
 		const timer = new Stopwatch();
 
 		if (this.client.options.typing) message.channel.startTyping();
@@ -28,4 +27,4 @@ module.exports = class extends Event {
 		if (this.client.options.typing) message.channel.stopTyping();
 	}
 
-};
+}

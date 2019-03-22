@@ -1,10 +1,10 @@
-const { Client } = require('klasa');
-const path = require('path');
+import { Client } from 'klasa';
+import path from 'path';
 
 Client.defaultGuildSchema
 	.add('tags', 'any', { array: true });
 
-class TagsClient extends Client {
+export default class TagsClient extends Client {
 
 	/**
 	 * Constructs the klasa-tags client
@@ -13,16 +13,18 @@ class TagsClient extends Client {
 	 */
 	constructor(config) {
 		super(config);
+		// @ts-ignore
 		this.constructor[Client.plugin].call(this);
 	}
 
 	static [Client.plugin]() {
+		const typedThis = this as unknown as TagsClient;
 		const coreDirectory = path.join(__dirname, '../');
 
-		this.commands.registerCoreDirectory(coreDirectory);
-		this.events.registerCoreDirectory(coreDirectory);
+		// @ts-ignore
+		typedThis.commands.registerCoreDirectory(coreDirectory);
+		// @ts-ignore
+		typedThis.events.registerCoreDirectory(coreDirectory);
 	}
 
 }
-
-module.exports = TagsClient;

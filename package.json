@@ -16,10 +16,12 @@
   },
   "devDependencies": {
     "@types/node": "^11.11.3",
+    "discord.js": "github:discordjs/discord.js#master",
     "docgen": "github:dirigeants/docsgen",
     "eslint": "^5.15.3",
     "eslint-config-klasa": "github:dirigeants/klasa-lint",
     "eslint-plugin-markdown": "^1.0.0",
+    "klasa": "github:dirigeants/klasa#master",
     "markdownlint-cli": "^0.14.0",
     "tslint": "^5.14.0",
     "typescript": "^3.3.4000"
