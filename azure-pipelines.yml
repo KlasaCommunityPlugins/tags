@@ -23,7 +23,7 @@ jobs:
 
   - template: docs.yml@templates
     parameters:
-      ghRef: 'github.com/KlasaCommunityPlugins/functions'
+      ghRef: 'github.com/KlasaCommunityPlugins/tags'
       targetBranch: 'docs'
       sync: 'false'
       dependsOn:
