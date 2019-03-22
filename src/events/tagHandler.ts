@@ -5,7 +5,7 @@ export default class TagHandler extends Event {
 
 	event = 'commandUnknown';
 
-	async run(message: KlasaMessage, command: string) {
+	public async run(message: KlasaMessage, command: string): Promise<void> {
 		const tagCommand = this.client.commands.get('tag') as TagCommand;
 		const timer = new Stopwatch();
 

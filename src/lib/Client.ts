@@ -11,13 +11,13 @@ export default class TagsClient extends Client {
 	 * @since 0.0.1
 	 * @param {ClientOptions} config The config to pass to the new client
 	 */
-	constructor(config) {
+	public constructor(config) {
 		super(config);
 		// @ts-ignore
 		this.constructor[Client.plugin].call(this);
 	}
 
-	static [Client.plugin]() {
+	public static [Client.plugin](): void {
 		const typedThis = this as unknown as TagsClient;
 		const coreDirectory = path.join(__dirname, '../');
 
