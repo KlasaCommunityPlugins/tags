@@ -2,10 +2,9 @@ import { Event, Stopwatch, KlasaMessage } from 'klasa';
 import TagCommand from '../commands/tag';
 
 export default class TagHandler extends Event {
-
 	event = 'commandUnknown';
 
-	public async run(message: KlasaMessage, command: string): Promise<void> {
+	async run(message: KlasaMessage, command: string) {
 		const tagCommand = this.client.commands.get('tag') as TagCommand;
 		const timer = new Stopwatch();
 
@@ -15,7 +14,7 @@ export default class TagHandler extends Event {
 			try {
 				const commandRun = tagCommand.show(message, [command]);
 				timer.stop();
-				const response = await commandRun;
+				const response = await commandRun as KlasaMessage | KlasaMessage[];
 				this.client.finalizers.run(message, tagCommand, response, timer);
 				this.client.emit('commandSuccess', message, tagCommand, ['show', command], response);
 			} catch (error) {
@@ -26,5 +25,4 @@ export default class TagHandler extends Event {
 		}
 		if (this.client.options.typing) message.channel.stopTyping();
 	}
-
 }

@@ -1,46 +1,47 @@
-import { Command, KlasaMessage } from 'klasa';
+import { Command, KlasaMessage, KlasaClient, CommandStore } from 'klasa';
 import { Util }  from 'discord.js';
 
-export default class TagCommand extends Command {
+export type Tag = [string, string];
 
-	public constructor(client, store, file, directory) {
+export default class TagCommand extends Command {
+	constructor(client: KlasaClient, store: CommandStore, file: string[], directory: string) {
 		super(client, store, file, directory, {
+			description: 'Allows you to create, remove or show tags.',
+			subcommands: true,
 			usage: '<add|remove|source|list|show:default> (tag:string) [content:...string]',
 			usageDelim: ' ',
-			subcommands: true,
-			description: 'Shows tags.'
 		});
+
 		this.createCustomResolver('string', (arg, possible, message, [action]) => {
 			if (action === 'list') return arg;
 			return this.client.arguments.get('string').run(arg, possible, message);
 		});
 	}
 
-	public async add(message: KlasaMessage, [tag, content]: string[]): Promise<KlasaMessage | KlasaMessage[]> {
-		await message.guild.settings.update('tags', [...message.guild.settings['tags'], [tag, content]], { action: 'overwrite' });
-		return message.send(`Added \`${tag}\` tag as: \`\`\`${Util.escapeMarkdown(content)}\`\`\``);
+	async add(message: KlasaMessage, [tag, content]: [string, string]) {
+		await message.guild.settings.update('tags', [...message.guild.settings.get('tags') as Tag[], [tag, content]], { action: 'overwrite' });
+		return message.send(`Added the tag \`${tag}\` with content: \`\`\`${Util.escapeMarkdown(content)}\`\`\``);
 	}
 
-	public async remove(message: KlasaMessage, [tag]: string[]): Promise<KlasaMessage | KlasaMessage[]> {
-		const filtered = message.guild.settings['tags'].filter(([name]) => name !== tag);
+	async remove(message: KlasaMessage, [tag]: [string]) {
+		const filtered = (message.guild.settings.get('tags') as Tag[]).filter(([name]) => name !== tag);
 		await message.guild.settings.update('tags', filtered, { action: 'overwrite' });
-		return message.send(`Removed \`${tag}\` tag`);
+		return message.send(`Removed the tag \`${tag}\``);
 	}
 
-	public list(message: KlasaMessage): Promise<KlasaMessage | KlasaMessage[]> {
-		return message.send(`Tags for this guild are: ${message.guild.settings['tags'].map(key => key[0])}`);
+	list(message: KlasaMessage) {
+		return message.send(`Tags for this guild are: ${(message.guild.settings.get('tags') as Tag[]).map(([name]) => name).join(', ')}`);
 	}
 
-	public show(message: KlasaMessage, [tag]: string[]): Promise<KlasaMessage | KlasaMessage[]> {
-		const emote = message.guild.settings['tags'].find(([name]) => name === tag);
-		if (!emote) return undefined;
+	show(message: KlasaMessage, [tag]: [string]) {
+		const emote = (message.guild.settings.get('tags') as Tag[]).find(([name]) => name === tag);
+		if (!emote) return null;
 		return message.send(emote[1]);
 	}
 
-	public source(message: KlasaMessage, [tag]: string[]): Promise<KlasaMessage | KlasaMessage[]> {
-		const emote = message.guild.settings['tags'].find(([name]) => name === tag);
-		if (!emote) return undefined;
+	source(message: KlasaMessage, [tag]: [string]) {
+		const emote = (message.guild.settings.get('tags') as Tag[]).find(([name]) => name === tag);
+		if (!emote) return null;
 		return message.send(`\`\`\`${Util.escapeMarkdown(emote[1])}\`\`\``);
 	}
-
 }

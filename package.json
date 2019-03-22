@@ -1,7 +1,7 @@
 {
   "name": "@kcp/tags",
   "version": "1.0.0",
-  "description": "A klasa plugin to add tag functionality to bots",
+  "description": "A Klasa plugin to add tag functionality to bots",
   "homepage": "https://github.com/KlasaCommunityPlugins/tags",
   "bugs": {
     "url": "https://github.com/KlasaCommunityPlugins/tags/issues"
@@ -24,7 +24,8 @@
     "klasa": "github:dirigeants/klasa#master"
   },
   "devDependencies": {
-    "@types/node": "^11.11.3",
+    "@kcp/lint": "github:KlasaCommunityPlugins/lint-files",
+    "@types/node": "^11.11.6",
     "discord.js": "github:discordjs/discord.js#master",
     "docgen": "github:dirigeants/docsgen",
     "eslint": "^5.15.3",
