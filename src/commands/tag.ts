@@ -1,5 +1,5 @@
-import { Command, KlasaMessage, KlasaClient, CommandStore } from 'klasa';
 import { Util }  from 'discord.js';
+import { Command, CommandStore, KlasaClient, KlasaMessage } from 'klasa';
 
 export type Tag = [string, string];
 

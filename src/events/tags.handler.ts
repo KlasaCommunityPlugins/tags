@@ -1,4 +1,4 @@
-import { Event, Stopwatch, KlasaMessage } from 'klasa';
+import { Event, KlasaMessage, Stopwatch } from 'klasa';
 import TagCommand from '../commands/tag';
 
 export default class TagHandler extends Event {
@@ -7,7 +7,7 @@ export default class TagHandler extends Event {
 	async run(message: KlasaMessage, command: string) {
 		const tagCommand = this.client.commands.get('tag') as TagCommand;
 		const timer = new Stopwatch();
-
+		// tslint:disable-next-line
 		if (this.client.options.typing) message.channel.startTyping();
 		try {
 			await this.client.inhibitors.run(message, tagCommand);
@@ -15,6 +15,7 @@ export default class TagHandler extends Event {
 				const commandRun = tagCommand.show(message, [command]);
 				timer.stop();
 				const response = await commandRun as KlasaMessage | KlasaMessage[];
+				// tslint:disable-next-line
 				this.client.finalizers.run(message, tagCommand, response, timer);
 				this.client.emit('commandSuccess', message, tagCommand, ['show', command], response);
 			} catch (error) {

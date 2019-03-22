@@ -16,7 +16,7 @@ export class TagsClient extends Client {
 	 * @since 0.0.1
 	 * @param {external:KlasaClientOptions} [config] The config to pass to the new client
 	 */
-	public constructor(config?: KlasaClientOptions) {
+	constructor(config?: KlasaClientOptions) {
 		super(config);
 		// @ts-ignore
 		this.constructor[Client.plugin].call(this);
