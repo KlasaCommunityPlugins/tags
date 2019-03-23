@@ -1,6 +1,6 @@
 # Tags [![Build Status](https://dev.azure.com/klasacommunityplugins/Plugins/_apis/build/status/Tags?branchName=master)](https://dev.azure.com/klasacommunityplugins/Plugins/_build/latest?definitionId=6&branchName=master)
 
-A Klasa plugin to seamlessly replicate no-mention-spam behavior in Klasa bots
+A Klasa plugin to add tag functionality to bots
 
 ## How To Use
 
