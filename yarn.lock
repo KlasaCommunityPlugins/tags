@@ -325,7 +325,12 @@
   dependencies:
     arrify "^1.0.1"
 
-"@types/node@^11.11.3":
+"@kcp/lint@github:KlasaCommunityPlugins/lint-files":
+  version "0.0.1"
+  uid "69c87c031b3cae1bbef020fb080e6438837262a6"
+  resolved "https://codeload.github.com/KlasaCommunityPlugins/lint-files/tar.gz/69c87c031b3cae1bbef020fb080e6438837262a6"
+
+"@types/node@^11.11.6":
   version "11.11.6"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-11.11.6.tgz#df929d1bb2eee5afdda598a41930fe50b43eaa6a"
   integrity sha512-Exw4yUWMBXM3X+8oqzJNRqZSwUAaS4+7NdvHqQuFi/d+synz++xmX3QIf+BFqneW8N31R8Ky+sikfZUXq07ggQ==
@@ -2519,7 +2524,8 @@ kind-of@^6.0.0, kind-of@^6.0.2:
 
 "klasa@github:dirigeants/klasa#master":
   version "0.5.0-dev"
-  resolved "https://codeload.github.com/dirigeants/klasa/tar.gz/29f6db2a13abb42c585f192d7459a04dba0ba188"
+  uid "0410122c4918fc7fc026f7c15130be704afb12da"
+  resolved "https://codeload.github.com/dirigeants/klasa/tar.gz/0410122c4918fc7fc026f7c15130be704afb12da"
   dependencies:
     fs-nextra "^0.4.3"
 
