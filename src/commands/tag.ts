@@ -20,13 +20,13 @@ export default class TagCommand extends Command {
 	}
 
 	async add(message: KlasaMessage, [tag, content]: [string, string]) {
-		await message.guild.settings.update('tags', [...message.guild!.settings.get('tags') as Tag[], [tag.toLowerCase(), content]], { action: 'overwrite' });
+		await message.guild!.settings.update('tags', [...message.guild!.settings.get('tags') as Tag[], [tag.toLowerCase(), content]], { action: 'overwrite' });
 		return message.send(`Added the tag \`${tag}\` with content: \`\`\`${Util.escapeMarkdown(content)}\`\`\``);
 	}
 
 	async remove(message: KlasaMessage, [tag]: [string]) {
 		const filtered = (message.guild!.settings.get('tags') as Tag[]).filter(([name]) => name !== tag.toLowerCase());
-		await message.guild.settings.update('tags', filtered, { action: 'overwrite' });
+		await message.guild!.settings.update('tags', filtered, { action: 'overwrite' });
 		return message.send(`Removed the tag \`${tag}\``);
 	}
 
