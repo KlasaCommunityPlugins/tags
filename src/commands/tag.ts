@@ -19,12 +19,12 @@ export default class TagCommand extends Command {
 	}
 
 	async add(message: KlasaMessage, [tag, content]: [string, string]) {
-		await message.guild.settings.update('tags', [...message.guild.settings.get('tags') as Tag[], [tag, content]], { action: 'overwrite' });
+		await message.guild.settings.update('tags', [...message.guild.settings.get('tags') as Tag[], [tag.toLowerCase(), content]], { action: 'overwrite' });
 		return message.send(`Added the tag \`${tag}\` with content: \`\`\`${Util.escapeMarkdown(content)}\`\`\``);
 	}
 
 	async remove(message: KlasaMessage, [tag]: [string]) {
-		const filtered = (message.guild.settings.get('tags') as Tag[]).filter(([name]) => name !== tag);
+		const filtered = (message.guild.settings.get('tags') as Tag[]).filter(([name]) => name !== tag.toLowerCase());
 		await message.guild.settings.update('tags', filtered, { action: 'overwrite' });
 		return message.send(`Removed the tag \`${tag}\``);
 	}
@@ -34,13 +34,13 @@ export default class TagCommand extends Command {
 	}
 
 	show(message: KlasaMessage, [tag]: [string]) {
-		const emote = (message.guild.settings.get('tags') as Tag[]).find(([name]) => name === tag);
+		const emote = (message.guild.settings.get('tags') as Tag[]).find(([name]) => name === tag.toLowerCase());
 		if (!emote) return null;
 		return message.send(emote[1]);
 	}
 
 	source(message: KlasaMessage, [tag]: [string]) {
-		const emote = (message.guild.settings.get('tags') as Tag[]).find(([name]) => name === tag);
+		const emote = (message.guild.settings.get('tags') as Tag[]).find(([name]) => name === tag.toLowerCase());
 		if (!emote) return null;
 		return message.send(`\`\`\`${Util.escapeMarkdown(emote[1])}\`\`\``);
 	}
