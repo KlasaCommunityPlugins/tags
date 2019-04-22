@@ -2532,8 +2532,8 @@ kind-of@^6.0.0, kind-of@^6.0.2:
 
 "klasa@github:dirigeants/klasa#master":
   version "0.5.0-dev"
-  uid "4114309bb521b15e4656f8904c59331e457b809e"
-  resolved "https://codeload.github.com/dirigeants/klasa/tar.gz/4114309bb521b15e4656f8904c59331e457b809e"
+  uid ace23c76869b0aa0ea08332c12fff7964f78a5bc
+  resolved "https://codeload.github.com/dirigeants/klasa/tar.gz/ace23c76869b0aa0ea08332c12fff7964f78a5bc"
   dependencies:
     fs-nextra "^0.4.3"
 
