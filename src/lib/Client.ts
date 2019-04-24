@@ -22,14 +22,12 @@ export class TagsClient extends Client {
 		this.constructor[Client.plugin].call(this);
 	}
 
-	static [Client.plugin]() {
-		const typedThis = this as unknown as TagsClient;
-
+	static [Client.plugin](this: TagsClient) {
 		const coreDirectory = join(__dirname, '../');
 
 		// @ts-ignore
-		typedThis.commands.registerCoreDirectory(coreDirectory);
+		this.commands.registerCoreDirectory(coreDirectory);
 		// @ts-ignore
-		typedThis.events.registerCoreDirectory(coreDirectory);
+		this.events.registerCoreDirectory(coreDirectory);
 	}
 }
