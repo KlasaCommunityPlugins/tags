@@ -42,7 +42,7 @@ import { Client as TagsClient } from '@kcp/tags';
 Client.use(TagsClient);
 ```
 
-1. ???... Enjoy!
+2. ???... Enjoy!
 
 ## License
 
