@@ -29,7 +29,7 @@
     "@types/ws": "^6.0.1",
     "discord.js": "github:discordjs/discord.js#master",
     "docgen": "github:dirigeants/docsgen",
-    "eslint": "^5.16.0",
+    "eslint": "^6.0.0",
     "eslint-config-klasa": "github:dirigeants/klasa-lint",
     "eslint-plugin-markdown": "^1.0.0",
     "klasa": "github:dirigeants/klasa#master",
