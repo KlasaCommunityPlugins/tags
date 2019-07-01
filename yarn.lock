@@ -25,8 +25,8 @@
 
 "@kcp/lint@github:KlasaCommunityPlugins/lint-files":
   version "0.0.1"
-  uid ff0be205d0f5526a4ddd4d84643584a4ab023c61
-  resolved "https://codeload.github.com/KlasaCommunityPlugins/lint-files/tar.gz/ff0be205d0f5526a4ddd4d84643584a4ab023c61"
+  uid "31ab5ed0d1f43f09e617d59c2af3dcb4f18776d6"
+  resolved "https://codeload.github.com/KlasaCommunityPlugins/lint-files/tar.gz/31ab5ed0d1f43f09e617d59c2af3dcb4f18776d6"
 
 "@types/events@*":
   version "3.0.0"
