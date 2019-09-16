@@ -23,6 +23,11 @@
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.4.4.tgz#5977129431b8fe33471730d255ce8654ae1250b6"
   integrity sha512-5pCS4mOsL+ANsFZGdvNLybx4wtqAZJ0MJjMHxvzI3bvIsz6sQvzW8XX92EYIkiPtIvcfG3Aj+Ir5VNyjnZhP7w==
 
+"@discordjs/collection@^0.1.1":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@discordjs/collection/-/collection-0.1.2.tgz#f3d88dfc0ca62bb4cbf24f80202cdfdfccf9fa4d"
+  integrity sha512-N4lTTbLYb4aiOVqi2xQgkNrzWouCkT1QisAVg/gi1h4rZdw8d5JEuIdqISkG+Zl8BTmyxEb8zXmfsORLGoeDig==
+
 "@kcp/lint@github:KlasaCommunityPlugins/lint-files":
   version "0.0.1"
   uid "617f512d2d84a59b69663b15fd3a8a7675f9a5b9"
@@ -397,9 +402,10 @@ diff@^3.2.0:
 
 "discord.js@github:discordjs/discord.js#master":
   version "12.0.0-dev"
-  uid "4fc461c2f932709f51efd65a401d943a7efcec12"
-  resolved "https://codeload.github.com/discordjs/discord.js/tar.gz/4fc461c2f932709f51efd65a401d943a7efcec12"
+  uid ea9e1441905e67e2627a6f5e80a8d989d01376c5
+  resolved "https://codeload.github.com/discordjs/discord.js/tar.gz/ea9e1441905e67e2627a6f5e80a8d989d01376c5"
   dependencies:
+    "@discordjs/collection" "^0.1.1"
     abort-controller "^3.0.0"
     form-data "^2.3.3"
     node-fetch "^2.3.0"
