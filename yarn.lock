@@ -490,6 +490,11 @@ entities@~1.1.1:
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.2.tgz#bdfa735299664dfafd34529ed4f8522a275fea56"
   integrity sha512-f2LZMYl1Fzu7YSBKg+RoROelpOaNrcGmE9AZubeDfrCEia483oW4MI4VyFd5VNHIgQ/7qm1I0wUHK1eJnn2y2w==
 
+entities@~2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/entities/-/entities-2.0.0.tgz#68d6084cab1b079767540d80e56a39b423e4abf4"
+  integrity sha512-D9f7V0JSRwIxlRI2mjMqufDrRDnx8p+eEOz7aUM9SuvF8gsBzra0/6tbjl1m8eQHrZlYj6PxqE00hZ1SAIKPLw==
+
 escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
@@ -755,19 +760,7 @@ glob-parent@^5.0.0:
   dependencies:
     is-glob "^4.0.1"
 
-glob@^7.1.1, glob@^7.1.3, glob@~7.1.2:
-  version "7.1.3"
-  resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.3.tgz#3960832d3f1574108342dafd3a67b332c0969df1"
-  integrity sha512-vcfuiIxogLV4DlGBHIUOwI0IbrJ8HWPc4MU7HzviGeNho/UJDfi6B5p3sHeWIQ0KGIU0Jpxi5ZHxemQfLkkAwQ==
-  dependencies:
-    fs.realpath "^1.0.0"
-    inflight "^1.0.4"
-    inherits "2"
-    minimatch "^3.0.4"
-    once "^1.3.0"
-    path-is-absolute "^1.0.0"
-
-glob@^7.1.5:
+glob@^7.1.1, glob@^7.1.3, glob@^7.1.5, glob@~7.1.2:
   version "7.1.6"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.6.tgz#141f33b81a7c2492e125594307480c46679278a6"
   integrity sha512-LwaxwyZ72Lk7vZINtNNrywX0ZuLyStrdDtabefZKAY5ZGJhVtgdznluResxNmPitE0SAO+O26sWTHeKSI2wMBA==
@@ -954,7 +947,7 @@ js-tokens@^4.0.0:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
-js-yaml@^3.13.1, js-yaml@~3.13.0:
+js-yaml@^3.13.1:
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
   integrity sha512-YfbcO7jXDdyj0DGxYVSlSeQNHbD7XPWvrVWeVUujrQEoZzWJIRrCPoyk6kL6IAjAG2IolMK4T0hNUe0HOUs5Jw==
@@ -1120,7 +1113,18 @@ markdown-it-anchor@^5.0.2:
   resolved "https://registry.yarnpkg.com/markdown-it-anchor/-/markdown-it-anchor-5.0.2.tgz#cdd917a05b7bf92fb736a6dae3385c6d0d0fa552"
   integrity sha512-AFM/woBI8QDJMS/9+MmsBMT5/AR+ImfOsunQZTZhzcTmna3rIzAzbOh5E0l6mlFM/i9666BpUtkqQ9bS7WApCg==
 
-markdown-it@8.4.2, markdown-it@^8.4.2:
+markdown-it@10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/markdown-it/-/markdown-it-10.0.0.tgz#abfc64f141b1722d663402044e43927f1f50a8dc"
+  integrity sha512-YWOP1j7UbDNz+TumYP1kpwnP0aEa711cJjrAQrzd0UXlbJfc5aAq0F/PZHjiioqDC1NKgvIMX+o+9Bk7yuM2dg==
+  dependencies:
+    argparse "^1.0.7"
+    entities "~2.0.0"
+    linkify-it "^2.0.0"
+    mdurl "^1.0.1"
+    uc.micro "^1.0.5"
+
+markdown-it@^8.4.2:
   version "8.4.2"
   resolved "https://registry.yarnpkg.com/markdown-it/-/markdown-it-8.4.2.tgz#386f98998dc15a37722aa7722084f4020bdd9b54"
   integrity sha512-GcRz3AWTqSUphY3vsUqQSFMbgR38a4Lh3GWlHRh/7MRwz8mcu9n2IO7HOh+bXHrR9kOPDl5RNCaEsrneb+xhHQ==
@@ -1131,28 +1135,34 @@ markdown-it@8.4.2, markdown-it@^8.4.2:
     mdurl "^1.0.1"
     uc.micro "^1.0.5"
 
-markdownlint-cli@^0.15.0:
-  version "0.15.0"
-  resolved "https://registry.yarnpkg.com/markdownlint-cli/-/markdownlint-cli-0.15.0.tgz#12a820d3745a955cff2877157d132248e9d3802b"
-  integrity sha512-UTstPEXMix4CO1RIgjX3Bd1M+xklc4KXMP2309Zfp5y3UJOASWLSXnTnzkztBn5aZRt7bzLZmxTaR8M4J8cbbQ==
+markdownlint-cli@^0.19.0:
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/markdownlint-cli/-/markdownlint-cli-0.19.0.tgz#70ccd7334d667c94b3259b5dfc1978cf2199a6fd"
+  integrity sha512-5hUEBAmbCVJflws6841HJ0KTZdgGWYaPThoXPI6Wjn1VkoiYWsprNH0r3PvPmyGXtvbHJ7/7eGPde2a6cx8t0w==
   dependencies:
     commander "~2.9.0"
     deep-extend "~0.5.1"
     get-stdin "~5.0.1"
     glob "~7.1.2"
-    js-yaml "~3.13.0"
+    js-yaml "^3.13.1"
     lodash.differencewith "~4.5.0"
     lodash.flatten "~4.4.0"
-    markdownlint "~0.13.0"
+    markdownlint "~0.17.1"
+    markdownlint-rule-helpers "~0.5.0"
     minimatch "~3.0.4"
     rc "~1.2.7"
 
-markdownlint@~0.13.0:
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/markdownlint/-/markdownlint-0.13.0.tgz#39ffd5ffbf1198c761a5ef3e28c195e5eb8dd669"
-  integrity sha512-mGeDEbvmRk2T8f043lK7Lhcdi7mr68hQqGsJCS4p52uvEyOLym28s3r7GA6aaFQFtwT0MfFaJ/7Ex4n/HVPUnQ==
+markdownlint-rule-helpers@~0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/markdownlint-rule-helpers/-/markdownlint-rule-helpers-0.5.0.tgz#316569329f2341b8066817292a6733ef56571301"
+  integrity sha512-6bJAV4TjUoDDnqxfb6EKTuZlpYI6vn4kerid7WTrZaEjsWuYDeYDAN+r4o+vbUYFZfJkiBU7NPBqPd4QJ1CZzQ==
+
+markdownlint@~0.17.1:
+  version "0.17.2"
+  resolved "https://registry.yarnpkg.com/markdownlint/-/markdownlint-0.17.2.tgz#de0ab144fbf314fedadcb8a4ce0db9ea819f91a5"
+  integrity sha512-vsxopn0qEdm0P2XI3S9sVA+jvjKjR8lHZ+0FKlusth+1UK9tI29mRFkKeZPERmbWsMehJcogfMieBUkMgNEFkQ==
   dependencies:
-    markdown-it "8.4.2"
+    markdown-it "10.0.0"
 
 marked@^0.7.0:
   version "0.7.0"
