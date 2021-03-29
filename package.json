@@ -31,7 +31,7 @@
     "docgen": "github:dirigeants/docsgen",
     "eslint": "^7.0.0",
     "eslint-config-klasa": "github:dirigeants/klasa-lint",
-    "eslint-plugin-markdown": "^1.0.0",
+    "eslint-plugin-markdown": "^2.0.0",
     "klasa": "github:dirigeants/klasa#master",
     "markdownlint-cli": "^0.15.0",
     "tslint": "^6.0.0",
